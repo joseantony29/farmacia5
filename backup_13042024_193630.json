@@ -1,0 +1,1595 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2024-04-13T00:17:59.825Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "Comunidad",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2024-04-13T00:18:28.744Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "10000000-Donar",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2024-04-13T00:19:14.614Z",
+        "user": 1,
+        "content_type": 11,
+        "object_id": "1",
+        "object_repr": "10000000-Donar",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2024-04-13T02:13:39.971Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2024-04-13T02:14:00.506Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2024-04-13T02:15:13.775Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2024-04-13T02:15:29.356Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2024-04-13T02:15:46.998Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2024-04-13T02:16:06.445Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2024-04-13T02:16:51.311Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2024-04-13T02:17:07.682Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Comprometido\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2024-04-13T02:17:25.415Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Stock\", \"Comprometido\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2024-04-13T22:48:30.318Z",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "AIRON - LOTE-001",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Fecha de vencimiento\"]}}]"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$yYMaQm9TSUxcAIQVrtedOL$ohSW8q7FtosXMwGTnM3KxDWGqFu776DbxSrg/1GQl/k=",
+        "last_login": "2024-04-13T22:47:51.561Z",
+        "is_superuser": true,
+        "username": "V-10000000",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-04-13T00:15:40.363Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$XVctp9Zc5j8023mGZ5NfW7$9OEdIMzlngkG38VWJwjr872KJF0RQXINPgPqAJKDAsc=",
+        "last_login": "2024-04-13T23:32:18.326Z",
+        "is_superuser": false,
+        "username": "V-20000000",
+        "first_name": "Harvey",
+        "last_name": "Specter",
+        "email": "correo@correo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-04-13T02:04:58.763Z",
+        "groups": [],
+        "user_permissions": [
+            6,
+            13,
+            14,
+            16,
+            54,
+            55,
+            57,
+            25,
+            26,
+            27,
+            28,
+            33,
+            41,
+            42,
+            40,
+            37,
+            34,
+            39,
+            49,
+            48,
+            38,
+            45,
+            47,
+            46,
+            36,
+            29,
+            30,
+            32,
+            58,
+            59,
+            61,
+            74,
+            75,
+            77,
+            62,
+            63,
+            65,
+            70,
+            71,
+            73,
+            66,
+            67,
+            69,
+            79,
+            81,
+            122,
+            123,
+            125,
+            118,
+            119,
+            121,
+            114,
+            115,
+            117,
+            110,
+            113,
+            106,
+            107,
+            109,
+            102,
+            103,
+            105,
+            94,
+            95,
+            97,
+            90,
+            91,
+            93,
+            86,
+            87,
+            89
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$qMHdX16cfZmUA1VGmBHAuF$qySYLW+tPPLoVYjRCcfJMbPR4/29KSFceeylOcREDSs=",
+        "last_login": "2024-04-13T23:30:30.443Z",
+        "is_superuser": false,
+        "username": "V-21000000",
+        "first_name": "Donna",
+        "last_name": "Paulsen",
+        "email": "correo@correo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-04-13T02:06:20.766Z",
+        "groups": [],
+        "user_permissions": [
+            41,
+            42,
+            49,
+            48,
+            45,
+            47,
+            46,
+            29,
+            30,
+            32,
+            58,
+            59,
+            61,
+            74,
+            75,
+            77,
+            62,
+            63,
+            65,
+            70,
+            71,
+            73,
+            66,
+            67,
+            69,
+            78,
+            79,
+            81,
+            122,
+            123,
+            125,
+            118,
+            119,
+            121,
+            114,
+            115,
+            117,
+            110,
+            113,
+            106,
+            107,
+            109,
+            102,
+            103,
+            105,
+            97,
+            91,
+            93,
+            86,
+            87,
+            89
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$FYjxMaGinN75eOvAPIog5V$RFBnsHUMSpGB7wrIUFm97iOtJNv/O2BYH5ITbwQKyak=",
+        "last_login": "2024-04-13T23:24:38.827Z",
+        "is_superuser": false,
+        "username": "V-22000000",
+        "first_name": "Rachel",
+        "last_name": "Zane",
+        "email": "correo@correo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-04-13T02:08:00.099Z",
+        "groups": [],
+        "user_permissions": [
+            13,
+            14,
+            16,
+            54,
+            55,
+            57,
+            33,
+            41,
+            42,
+            37,
+            34,
+            44,
+            43,
+            49,
+            48,
+            45,
+            47,
+            46,
+            36,
+            97,
+            90,
+            91,
+            93
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$diSX05xMoHWUycAChEkoYs$NKATcKIiqR93Qa87Lie88eWn4AcDo1Lh5i/9l/kxJJ4=",
+        "last_login": "2024-04-13T23:26:58.582Z",
+        "is_superuser": false,
+        "username": "V-23000000",
+        "first_name": "Louis",
+        "last_name": "Litt",
+        "email": "correo@correo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-04-13T02:09:10.806Z",
+        "groups": [],
+        "user_permissions": [
+            50,
+            51,
+            52,
+            53,
+            49,
+            48,
+            45,
+            47,
+            46
+        ]
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$IcJ8isc6qlAWHL5IXnFOeh$g0CTgeEGdT9+T7QPeX/q3Dcg7dSOjAGWteatOUkEopY=",
+        "last_login": "2024-04-13T21:46:56.237Z",
+        "is_superuser": false,
+        "username": "V-24000000",
+        "first_name": "Jessica",
+        "last_name": "Pearson",
+        "email": "correo@correo.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-04-13T02:11:05.925Z",
+        "groups": [],
+        "user_permissions": [
+            48,
+            45,
+            46
+        ]
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "hp27ss1sz2f3u7j8ueo2scrwayauk11j",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2pCWUigu3XsGMjPMSNVAUtqV8e7apAvd_vfef6kI25rj1niJc1JnZdTpd0OgB5cdpDuUW9VUy7rMqHdFH7Tpa038vBzu30GGlr-1CA4eBMjxSIb6NHXGi3OCdsAA3TTiID4YsUTE2DMKBLTBGusgkVPvDxyJOVU:1rvmr4:cOSATvu9g9t8Hl9YvVUBmOrf-Fi6rAoDZLp7RbglIZI",
+        "expire_date": "2024-04-27T23:32:18.374Z"
+    }
+},
+{
+    "model": "entidades.zona",
+    "pk": 1,
+    "fields": {
+        "zona_residencia": "Comunidad"
+    }
+},
+{
+    "model": "entidades.zona",
+    "pk": 2,
+    "fields": {
+        "zona_residencia": "La Peñita"
+    }
+},
+{
+    "model": "entidades.zona",
+    "pk": 3,
+    "fields": {
+        "zona_residencia": "Barrio Los Malabares"
+    }
+},
+{
+    "model": "entidades.zona",
+    "pk": 4,
+    "fields": {
+        "zona_residencia": "Barrio Libertador"
+    }
+},
+{
+    "model": "entidades.zona",
+    "pk": 5,
+    "fields": {
+        "zona_residencia": "Urb. Los Malabares"
+    }
+},
+{
+    "model": "entidades.zona",
+    "pk": 6,
+    "fields": {
+        "zona_residencia": "Las Americas"
+    }
+},
+{
+    "model": "entidades.perfil",
+    "pk": 1,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "10000000",
+        "nombres": "Donar",
+        "apellidos": "Barese",
+        "telefono": "04122681145",
+        "genero": "MA",
+        "f_nacimiento": "2001-01-20",
+        "embarazada": false,
+        "c_residencia": "",
+        "zona": 1,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "",
+        "rol": "AD",
+        "usuario": 1
+    }
+},
+{
+    "model": "entidades.perfil",
+    "pk": 2,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "20000000",
+        "nombres": "Harvey",
+        "apellidos": "Specter",
+        "telefono": "04122266588",
+        "genero": "MA",
+        "f_nacimiento": "1998-01-15",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_Jf8xhhI.jpg",
+        "zona": 1,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "ninguna",
+        "rol": "AD",
+        "usuario": 2
+    }
+},
+{
+    "model": "entidades.perfil",
+    "pk": 3,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "21000000",
+        "nombres": "Donna",
+        "apellidos": "Paulsen",
+        "telefono": "04127785541",
+        "genero": "FE",
+        "f_nacimiento": "1985-12-29",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_3A9zTv3.jpg",
+        "zona": 2,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "ninguna",
+        "rol": "AL",
+        "usuario": 3
+    }
+},
+{
+    "model": "entidades.perfil",
+    "pk": 4,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "22000000",
+        "nombres": "Rachel",
+        "apellidos": "Zane",
+        "telefono": "04123265886",
+        "genero": "FE",
+        "f_nacimiento": "1997-02-28",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_doNHfLZ.jpg",
+        "zona": 3,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "ninguno",
+        "rol": "AT",
+        "usuario": 4
+    }
+},
+{
+    "model": "entidades.perfil",
+    "pk": 5,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "23000000",
+        "nombres": "Louis",
+        "apellidos": "Litt",
+        "telefono": "04125668544",
+        "genero": "MA",
+        "f_nacimiento": "2000-09-05",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_gPiDPDs.jpg",
+        "zona": 5,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "NA",
+        "rol": "JC",
+        "usuario": 5
+    }
+},
+{
+    "model": "entidades.perfil",
+    "pk": 6,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "24000000",
+        "nombres": "Jessica",
+        "apellidos": "Pearson",
+        "telefono": "04244265558",
+        "genero": "FE",
+        "f_nacimiento": "1994-04-08",
+        "embarazada": true,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_SikEKFx.jpg",
+        "zona": 6,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "diabetes",
+        "rol": "PA",
+        "usuario": 6
+    }
+},
+{
+    "model": "entidades.comunidad",
+    "pk": 1,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "13665225",
+        "nombres": "Dexter",
+        "apellidos": "Dubai",
+        "patologia": "Diabetes",
+        "jefe_comunidad": 5,
+        "genero": "MA"
+    }
+},
+{
+    "model": "entidades.comunidad",
+    "pk": 2,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "19887552",
+        "nombres": "Leonor",
+        "apellidos": "Tovar",
+        "patologia": "Dengue",
+        "jefe_comunidad": 5,
+        "genero": "FE"
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 1,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "10000000",
+        "nombres": "Donar",
+        "apellidos": "Barese",
+        "telefono": "04122681145",
+        "genero": "MA",
+        "f_nacimiento": "2001-01-20",
+        "embarazada": false,
+        "c_residencia": "",
+        "zona": 1,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "",
+        "perfil": 1,
+        "parentesco": null
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 2,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "20000000",
+        "nombres": "Harvey",
+        "apellidos": "Specter",
+        "telefono": "04122266588",
+        "genero": "MA",
+        "f_nacimiento": "1998-01-15",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_Jf8xhhI.jpg",
+        "zona": 1,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "ninguna",
+        "perfil": 2,
+        "parentesco": null
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 3,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "21000000",
+        "nombres": "Donna",
+        "apellidos": "Paulsen",
+        "telefono": "04127785541",
+        "genero": "FE",
+        "f_nacimiento": "1985-12-29",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_3A9zTv3.jpg",
+        "zona": 2,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "ninguna",
+        "perfil": 3,
+        "parentesco": null
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 4,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "22000000",
+        "nombres": "Rachel",
+        "apellidos": "Zane",
+        "telefono": "04123265886",
+        "genero": "FE",
+        "f_nacimiento": "1997-02-28",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_RH06sIE.jpg",
+        "zona": 3,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "ninguno",
+        "perfil": 4,
+        "parentesco": null
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 5,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "23000000",
+        "nombres": "Louis",
+        "apellidos": "Litt",
+        "telefono": "04125668544",
+        "genero": "MA",
+        "f_nacimiento": "2000-09-05",
+        "embarazada": false,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_sHup2rb.jpg",
+        "zona": 5,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "NA",
+        "perfil": 5,
+        "parentesco": null
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 6,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "24000000",
+        "nombres": "Jessica",
+        "apellidos": "Pearson",
+        "telefono": "04244265558",
+        "genero": "FE",
+        "f_nacimiento": "1994-04-08",
+        "embarazada": true,
+        "c_residencia": "constancias_residencias/Tarjetas_De_Presentacion_Dentista_LZjXl3N.jpg",
+        "zona": 6,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "diabetes",
+        "perfil": 6,
+        "parentesco": null
+    }
+},
+{
+    "model": "entidades.beneficiado",
+    "pk": 7,
+    "fields": {
+        "nacionalidad": "V-",
+        "cedula": "28566986",
+        "nombres": "Daniel",
+        "apellidos": "Cospes",
+        "telefono": "04122222222",
+        "genero": "MA",
+        "f_nacimiento": "1991-11-11",
+        "embarazada": false,
+        "c_residencia": "",
+        "zona": 1,
+        "direccion": "Mínimo 77\r\nBarrio Jardin",
+        "patologia": "asma",
+        "perfil": 2,
+        "parentesco": "HO"
+    }
+},
+{
+    "model": "entidades.landingpage",
+    "pk": 1,
+    "fields": {
+        "imagen1": "",
+        "imagen2": "",
+        "imagen3": "",
+        "imagen4": "",
+        "imagen5": "",
+        "texto1": "Proxima jornada de vacunacion a la fecha: 20/04/2024"
+    }
+},
+{
+    "model": "inventario.almacen",
+    "pk": 1,
+    "fields": {
+        "nombre": "ESTANTE 1"
+    }
+},
+{
+    "model": "inventario.almacen",
+    "pk": 2,
+    "fields": {
+        "nombre": "ESTANTE 2"
+    }
+},
+{
+    "model": "inventario.almacen",
+    "pk": 3,
+    "fields": {
+        "nombre": "ESTANTE 3"
+    }
+},
+{
+    "model": "inventario.tipoinsumo",
+    "pk": 1,
+    "fields": {
+        "nombre": "CAJA"
+    }
+},
+{
+    "model": "inventario.tipoinsumo",
+    "pk": 2,
+    "fields": {
+        "nombre": "JARABE"
+    }
+},
+{
+    "model": "inventario.tipoinsumo",
+    "pk": 3,
+    "fields": {
+        "nombre": "TABLETAS"
+    }
+},
+{
+    "model": "inventario.laboratorio",
+    "pk": 1,
+    "fields": {
+        "nombre": "LABORATORIO 1"
+    }
+},
+{
+    "model": "inventario.laboratorio",
+    "pk": 2,
+    "fields": {
+        "nombre": "LABORATORIO 2"
+    }
+},
+{
+    "model": "inventario.laboratorio",
+    "pk": 3,
+    "fields": {
+        "nombre": "LABORATORIO 3"
+    }
+},
+{
+    "model": "inventario.laboratorio",
+    "pk": 4,
+    "fields": {
+        "nombre": "LABORATORIO 4"
+    }
+},
+{
+    "model": "inventario.producto",
+    "pk": 1,
+    "fields": {
+        "nombre": "IBUPROFENO",
+        "almacen": 1,
+        "tipo_insumo": 3,
+        "laboratorio": 1,
+        "if_expire_date": "SI",
+        "stock_minimo": 0,
+        "total_stock": 40,
+        "comprometido": 0
+    }
+},
+{
+    "model": "inventario.producto",
+    "pk": 2,
+    "fields": {
+        "nombre": "CETIRIZINA",
+        "almacen": 2,
+        "tipo_insumo": 3,
+        "laboratorio": 2,
+        "if_expire_date": "SI",
+        "stock_minimo": 24,
+        "total_stock": 20,
+        "comprometido": 0
+    }
+},
+{
+    "model": "inventario.producto",
+    "pk": 3,
+    "fields": {
+        "nombre": "AIRON",
+        "almacen": 3,
+        "tipo_insumo": 2,
+        "laboratorio": 3,
+        "if_expire_date": "SI",
+        "stock_minimo": 0,
+        "total_stock": 30,
+        "comprometido": 0
+    }
+},
+{
+    "model": "inventario.inventario",
+    "pk": 1,
+    "fields": {
+        "lote": "LOTE-001",
+        "f_vencimiento": "2024-05-11",
+        "stock": 20,
+        "comprometido": 0,
+        "producto": 3
+    }
+},
+{
+    "model": "inventario.inventario",
+    "pk": 2,
+    "fields": {
+        "lote": "LOTE-002",
+        "f_vencimiento": "2024-08-01",
+        "stock": 20,
+        "comprometido": 0,
+        "producto": 2
+    }
+},
+{
+    "model": "inventario.inventario",
+    "pk": 3,
+    "fields": {
+        "lote": "LOTE-003",
+        "f_vencimiento": "2024-11-01",
+        "stock": 40,
+        "comprometido": 0,
+        "producto": 1
+    }
+},
+{
+    "model": "inventario.inventario",
+    "pk": 4,
+    "fields": {
+        "lote": "LOTE-130",
+        "f_vencimiento": "2024-08-21",
+        "stock": 10,
+        "comprometido": 0,
+        "producto": 3
+    }
+},
+{
+    "model": "movimientos.solicitud",
+    "pk": 1,
+    "fields": {
+        "fecha_soli": "2024-04-13",
+        "fecha_en_espera": null,
+        "perfil": 6,
+        "beneficiado": 6,
+        "descripcion": "texto",
+        "motivo_rechazo": null,
+        "recipe": "recipes/Tarjetas_De_Presentacion_Dentista_ijkY5eV.jpg",
+        "proceso_actual": "FI",
+        "estado": "ET",
+        "tipo_solicitud": "ON"
+    }
+},
+{
+    "model": "movimientos.solicitud",
+    "pk": 2,
+    "fields": {
+        "fecha_soli": "2024-04-13",
+        "fecha_en_espera": null,
+        "perfil": 2,
+        "beneficiado": 2,
+        "descripcion": "texto",
+        "motivo_rechazo": null,
+        "recipe": "recipes/Tarjetas_De_Presentacion_Dentista_WdqS5oP.jpg",
+        "proceso_actual": "FI",
+        "estado": "ET",
+        "tipo_solicitud": "ON"
+    }
+},
+{
+    "model": "movimientos.solicitud",
+    "pk": 3,
+    "fields": {
+        "fecha_soli": "2024-04-13",
+        "fecha_en_espera": null,
+        "perfil": 1,
+        "beneficiado": 1,
+        "descripcion": "texto",
+        "motivo_rechazo": null,
+        "recipe": "recipes/Tarjetas_De_Presentacion_Dentista_naIRbO6.jpg",
+        "proceso_actual": "FI",
+        "estado": "ET",
+        "tipo_solicitud": "ON"
+    }
+},
+{
+    "model": "movimientos.detallesolicitud",
+    "pk": 7,
+    "fields": {
+        "solicitud": 1,
+        "producto": 3,
+        "cant_solicitada": 2,
+        "cant_entregada": 2
+    }
+},
+{
+    "model": "movimientos.detallesolicitud",
+    "pk": 8,
+    "fields": {
+        "solicitud": 1,
+        "producto": 2,
+        "cant_solicitada": 1,
+        "cant_entregada": 1
+    }
+},
+{
+    "model": "movimientos.detallesolicitud",
+    "pk": 9,
+    "fields": {
+        "solicitud": 1,
+        "producto": 1,
+        "cant_solicitada": 2,
+        "cant_entregada": 1
+    }
+},
+{
+    "model": "movimientos.detallesolicitud",
+    "pk": 11,
+    "fields": {
+        "solicitud": 2,
+        "producto": 3,
+        "cant_solicitada": 2,
+        "cant_entregada": 0
+    }
+},
+{
+    "model": "movimientos.detallesolicitud",
+    "pk": 13,
+    "fields": {
+        "solicitud": 3,
+        "producto": 3,
+        "cant_solicitada": 2,
+        "cant_entregada": 2
+    }
+},
+{
+    "model": "movimientos.detalleiventariosolicitud",
+    "pk": 1,
+    "fields": {
+        "detsolicitud": 8,
+        "inventario": 2,
+        "cantidad": 1
+    }
+},
+{
+    "model": "movimientos.detalleiventariosolicitud",
+    "pk": 2,
+    "fields": {
+        "detsolicitud": 9,
+        "inventario": 3,
+        "cantidad": 1
+    }
+},
+{
+    "model": "movimientos.detalleiventariosolicitud",
+    "pk": 3,
+    "fields": {
+        "detsolicitud": 13,
+        "inventario": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.tipomov",
+    "pk": 1,
+    "fields": {
+        "nombre": "DONACION",
+        "operacion": "+"
+    }
+},
+{
+    "model": "movimientos.tipomov",
+    "pk": 2,
+    "fields": {
+        "nombre": "SOBRANTE JORNADA",
+        "operacion": "-"
+    }
+},
+{
+    "model": "movimientos.tipomov",
+    "pk": 3,
+    "fields": {
+        "nombre": "SOLICITUD DE MEDICAMENTO",
+        "operacion": "-"
+    }
+},
+{
+    "model": "movimientos.tipomov",
+    "pk": 4,
+    "fields": {
+        "nombre": "SOLICITUD DE JORNADA",
+        "operacion": "-"
+    }
+},
+{
+    "model": "movimientos.tipomov",
+    "pk": 5,
+    "fields": {
+        "nombre": "AJUSTE INVENTARIO FISICO (RESTA)",
+        "operacion": "-"
+    }
+},
+{
+    "model": "movimientos.tipomov",
+    "pk": 6,
+    "fields": {
+        "nombre": "AJUSTE INVENTARIO FISICO (IGUAL)",
+        "operacion": "="
+    }
+},
+{
+    "model": "movimientos.jornada",
+    "pk": 1,
+    "fields": {
+        "encargados": "Dr.Jessie",
+        "descripcion": "texto de jornada",
+        "motivo_rechazo": null,
+        "fecha_solicitud": "2024-04-13",
+        "fecha_jornada": "2024-04-20",
+        "jefe_comunidad": 5,
+        "proceso_actual": "FI",
+        "estado": "ET",
+        "comunidad": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "movimientos.detallejornada",
+    "pk": 4,
+    "fields": {
+        "jornada": 1,
+        "producto": 3,
+        "cant_solicitada": 2,
+        "cant_aprobada": 2
+    }
+},
+{
+    "model": "movimientos.detallejornada",
+    "pk": 5,
+    "fields": {
+        "jornada": 1,
+        "producto": 2,
+        "cant_solicitada": 2,
+        "cant_aprobada": 2
+    }
+},
+{
+    "model": "movimientos.detallejornada",
+    "pk": 6,
+    "fields": {
+        "jornada": 1,
+        "producto": 1,
+        "cant_solicitada": 2,
+        "cant_aprobada": 2
+    }
+},
+{
+    "model": "movimientos.detalleiventariojornada",
+    "pk": 1,
+    "fields": {
+        "detjornada": 4,
+        "inventario": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.detalleiventariojornada",
+    "pk": 2,
+    "fields": {
+        "detjornada": 5,
+        "inventario": 2,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.detalleiventariojornada",
+    "pk": 3,
+    "fields": {
+        "detjornada": 6,
+        "inventario": 3,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 1,
+    "fields": {
+        "fecha_mov": "2024-04-12",
+        "tipo_mov": 1,
+        "empleado": 1,
+        "producto": 1,
+        "cantidad": 30
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 2,
+    "fields": {
+        "fecha_mov": "2024-04-12",
+        "tipo_mov": 1,
+        "empleado": 1,
+        "producto": 2,
+        "cantidad": 25
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 3,
+    "fields": {
+        "fecha_mov": "2024-04-12",
+        "tipo_mov": 1,
+        "empleado": 1,
+        "producto": 3,
+        "cantidad": 50
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 4,
+    "fields": {
+        "fecha_mov": "2024-04-12",
+        "tipo_mov": 2,
+        "empleado": 2,
+        "producto": 3,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 5,
+    "fields": {
+        "fecha_mov": "2024-04-12",
+        "tipo_mov": 2,
+        "empleado": 2,
+        "producto": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 6,
+    "fields": {
+        "fecha_mov": "2024-04-12",
+        "tipo_mov": 2,
+        "empleado": 2,
+        "producto": 2,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 7,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 2,
+        "empleado": 1,
+        "producto": 3,
+        "cantidad": 3
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 8,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 3,
+        "empleado": 4,
+        "producto": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 9,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 3,
+        "empleado": 4,
+        "producto": 2,
+        "cantidad": 1
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 10,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 3,
+        "empleado": 4,
+        "producto": 3,
+        "cantidad": 1
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 11,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 4,
+        "empleado": 3,
+        "producto": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 12,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 4,
+        "empleado": 3,
+        "producto": 2,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 13,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 4,
+        "empleado": 3,
+        "producto": 3,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 14,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 5,
+        "empleado": 2,
+        "producto": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 15,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 6,
+        "empleado": 2,
+        "producto": 2,
+        "cantidad": 0
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 16,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 5,
+        "empleado": 2,
+        "producto": 3,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 17,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 2,
+        "empleado": 2,
+        "producto": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.historial",
+    "pk": 18,
+    "fields": {
+        "fecha_mov": "2024-04-13",
+        "tipo_mov": 1,
+        "empleado": 2,
+        "producto": 4,
+        "cantidad": 10
+    }
+},
+{
+    "model": "movimientos.ingreso",
+    "pk": 1,
+    "fields": {
+        "fecha": "2024-04-12",
+        "descripcion": "texto descriptivo",
+        "tipo_ingreso": 1
+    }
+},
+{
+    "model": "movimientos.ingreso",
+    "pk": 2,
+    "fields": {
+        "fecha": "2024-04-13",
+        "descripcion": "texto",
+        "tipo_ingreso": 1
+    }
+},
+{
+    "model": "movimientos.detalleingreso",
+    "pk": 1,
+    "fields": {
+        "ingreso": 1,
+        "inventario": 1,
+        "cantidad": 30,
+        "lote": "LOTE-001",
+        "f_vencimiento": "2024-08-12"
+    }
+},
+{
+    "model": "movimientos.detalleingreso",
+    "pk": 2,
+    "fields": {
+        "ingreso": 1,
+        "inventario": 2,
+        "cantidad": 25,
+        "lote": "LOTE-002",
+        "f_vencimiento": "2024-08-01"
+    }
+},
+{
+    "model": "movimientos.detalleingreso",
+    "pk": 3,
+    "fields": {
+        "ingreso": 1,
+        "inventario": 3,
+        "cantidad": 50,
+        "lote": "LOTE-003",
+        "f_vencimiento": "2024-11-01"
+    }
+},
+{
+    "model": "movimientos.detalleingreso",
+    "pk": 4,
+    "fields": {
+        "ingreso": 2,
+        "inventario": 4,
+        "cantidad": 10,
+        "lote": "LOTE-130",
+        "f_vencimiento": "2024-08-21"
+    }
+},
+{
+    "model": "movimientos.egreso",
+    "pk": 1,
+    "fields": {
+        "fecha": "2024-04-12",
+        "descripcion": "texto de egreso",
+        "tipo_egreso": 2
+    }
+},
+{
+    "model": "movimientos.egreso",
+    "pk": 2,
+    "fields": {
+        "fecha": "2024-04-13",
+        "descripcion": "texto",
+        "tipo_egreso": 2
+    }
+},
+{
+    "model": "movimientos.egreso",
+    "pk": 3,
+    "fields": {
+        "fecha": "2024-04-13",
+        "descripcion": "texto",
+        "tipo_egreso": 2
+    }
+},
+{
+    "model": "movimientos.detalleegreso",
+    "pk": 1,
+    "fields": {
+        "egreso": 1,
+        "inventario": 3,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.detalleegreso",
+    "pk": 2,
+    "fields": {
+        "egreso": 1,
+        "inventario": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.detalleegreso",
+    "pk": 3,
+    "fields": {
+        "egreso": 1,
+        "inventario": 2,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.detalleegreso",
+    "pk": 4,
+    "fields": {
+        "egreso": 2,
+        "inventario": 3,
+        "cantidad": 3
+    }
+},
+{
+    "model": "movimientos.detalleegreso",
+    "pk": 5,
+    "fields": {
+        "egreso": 3,
+        "inventario": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "movimientos.contabilidadfisica",
+    "pk": 1,
+    "fields": {
+        "fecha": "2024-04-13",
+        "proceso_actual": "FI",
+        "estado": "AP",
+        "motivo_rechazo": null
+    }
+},
+{
+    "model": "movimientos.detcontabilidadfisica",
+    "pk": 7,
+    "fields": {
+        "contabilidad": 1,
+        "producto": 3,
+        "cantidad_contada": 22,
+        "cantidad_inventario": 24
+    }
+},
+{
+    "model": "movimientos.detcontabilidadfisica",
+    "pk": 8,
+    "fields": {
+        "contabilidad": 1,
+        "producto": 2,
+        "cantidad_contada": 20,
+        "cantidad_inventario": 20
+    }
+},
+{
+    "model": "movimientos.detcontabilidadfisica",
+    "pk": 9,
+    "fields": {
+        "contabilidad": 1,
+        "producto": 1,
+        "cantidad_contada": 40,
+        "cantidad_inventario": 42
+    }
+},
+{
+    "model": "movimientos.inventariocontfisica",
+    "pk": 7,
+    "fields": {
+        "detcontabilidad": 7,
+        "inventario": 1,
+        "cantidad_contada": 22,
+        "cantidad_inventario": 24
+    }
+},
+{
+    "model": "movimientos.inventariocontfisica",
+    "pk": 8,
+    "fields": {
+        "detcontabilidad": 8,
+        "inventario": 2,
+        "cantidad_contada": 20,
+        "cantidad_inventario": 20
+    }
+},
+{
+    "model": "movimientos.inventariocontfisica",
+    "pk": 9,
+    "fields": {
+        "detcontabilidad": 9,
+        "inventario": 3,
+        "cantidad_contada": 40,
+        "cantidad_inventario": 42
+    }
+}
+]

@@ -1,0 +1,116 @@
+<!-- modales -->
+{% load widget_tweaks %}
+<div class="modal fade" id="modal_nuevo_bene" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form method="post" id="form_nuevo_bene" enctype="multipart/form-data">{% csrf_token %}
+            <input type="hidden" name="action" id="action_bene" value="nuevo_bene">
+            <input type="hidden" name="id" id="" value="">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="smallmodalLabel">Agregar Usuarios</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col">
+                                    <label for="">Cedula de indentidad</label>
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <div class="btn-group">
+                                                {{form.nacionalidad|add_class:'form-control'|attr:'required'}}
+                                            </div>
+                                        </div>
+                                        {{form.cedula|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Numero_ci(event)'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col-6 p-0">
+                                    <label for="" class="form-control-label">Nombres</label>
+                                    {{form.nombres|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Texto(event)'}}
+                                </div>
+                                <div class="col-6 p-0">
+                                    <label for="">Apellidos</label>
+                                    {{form.apellidos|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Texto(event)'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col-5 p-1">
+                                    <label for="">F. de nacimiento</label>
+                                    {{form.f_nacimiento|add_class:'form-control'|attr:'required'|attr:'type:date'}}
+                                </div>
+                                <div class="col-7 p-1">
+                                    <label for="">Teléfono</label>
+                                    <div class="input-group">
+                                        {{form.telefono|add_class:'form-control'|attr:'onkeypress:return Solo_Numero(event)'|attr:'maxlength:11'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col-6">
+                                    <label for="">Genero</label>
+                                    {{form.genero|add_class:'form-control'|attr:'required'}}
+                                </div>
+                                <div class="col-6">
+                                    <label for="">¿Está embarazada?</label> <br>
+                                    <div class="form-check-inline form-check">
+                                        <label for="inline-radio1" class="form-check-label mr-3">
+                                            <input type="radio" id="inline-radio1" required name="embarazada" value="True" class="form-check-input deshabilitar">Sí
+                                        </label>
+                                        <label for="inline-radio2" class="form-check-label ">
+                                            <input type="radio" id="inline-radio2" required name="embarazada" value="False" class="form-check-input deshabilitar">No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col">
+                                    <label for="">Parentezco</label>
+                                    {{form.parentesco|add_class:'form-control'|attr:'required'}}
+                                </div>
+                                <div class="col">
+                                    <label for="">Zona</label>
+                                    {{form.zona|add_class:'form-control'|attr:'required'}}
+                                </div>
+                                <div class="col">
+                                    <label for="">Constancia de residencia</label>
+                                    {{form.c_residencia|add_class:'form-control'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Patología</label>
+                            {{form.patologia|add_class:'form-control'|attr:'style:resize:none'|attr:'rows:3'|attr:'required'|attr:'onkeypress:return Texto_Numeros(event)'}}
+                        </div>
+                        <div class="col">
+                            <label for="">Ubicación</label>
+                            {{form.direccion|add_class:'form-control'|attr:'style:resize:none'|attr:'rows:3'|attr:'required'|attr:'onkeypress:return Texto_Numeros(event)'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

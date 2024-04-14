@@ -1,0 +1,80 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}    	
+    <!-- notifier -->
+    <link rel="stylesheet" href="{% static 'css/notifier.css' %}">
+{% endblock extra_css %}
+
+{% block body %}
+
+    <!-- [ Main Content ] start -->
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card overflow-hidden">
+              <div class="card-body bg-light-primary text-center">
+                <div class="avtar avtar-s bg-primary">
+                    <i class="fa fa-cloud-download text-white"></i>
+                </div>
+                <p class="text-dark mt-2">Descargar copia de seguridad</p>
+                <div class="d-grid">
+                  <a class="btn btn-primary text-white" rel="btn_open_modal">Descargar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="modal fade" id="modal_security" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+      aria-hidden="true" style="display: none;">
+      <form action="" method="post" id="form_security">
+        {% csrf_token %}
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="d-flex align-items-center justify-content-between">
+                <h5 class="modal-title" id="mediumModalLabel">Confirmacion de identidad</h5>
+                <div class="cart-tools">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="demo-month-only" class="col-form-label">Confirmar contraseña
+                            <span class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Campo obligatorio">*</span>
+                        </label>
+                        <input type="password" name="password1" id="password1" class="form-control" minlength="6" required placeholder="Introduzca la contraseña">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="demo-month-only" class="col-form-label">Repita la contraseña
+                            <span class="text-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Campo obligatorio">*</span>
+                        </label>
+                        <input type="password" name="password2" id="password2" class="form-control" minlength="6" required placeholder="Introduzca la contraseña">
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger" id="btn_confirm_security">Confirmar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+{% endblock body %}
+
+{% block extrajs %}
+    <!-- notifier -->
+    <script src="{% static 'js/plugins/notifier.js' %}"></script>
+    <script src="{% static 'js/pages/db/db_security.js' %}"></script>
+{% endblock extrajs %}
+    

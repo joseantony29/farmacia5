@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{report_title}}</title>
+	<style>
+		@page{
+			size: a4 portrait;
+			@frame logo_frame {
+				-pdf-frame-content: report_header;
+				left: 30pt;
+				width: 110pt;
+				top: 20pt;
+				height: 90pt;
+			}
+			@frame title_frame {
+				-pdf-frame-content: title_header;
+				left: -450pt; width: 420pt; top: 10pt; height: 90pt;
+			}
+			@frame report_body {
+				left: 15pt;
+				width: 560pt;
+				top: 80pt;
+				height: 670pt;
+			}
+			@frame footer_frame {
+				-pdf-frame-content: report_footer;
+				right: 30pt;
+				width: 150pt;
+				top: 800pt;
+				height: 20pt;
+			}
+            @frame emicion_frame {
+				-pdf-frame-content: fecha_frame;
+				left: -110pt;
+				width: 100pt;
+				top: 90pt;
+				height: 30pt;
+			}
+            
+		}
+		.title{
+			padding-top: 1.5rem;
+			text-align: center;
+			width: 100%;
+		}
+		.report_info{
+			width: 100%;
+			padding-top: 5rem;
+		}
+		.report_body{
+			width: 100%;
+		}
+		.footer{
+			text-align: right;
+		}
+		.head {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 3rem;
+    }
+
+        #invoice thead tr th {
+            text-align: left;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            padding-top: 4px;
+        }
+
+        #invoice thead tr {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        #invoice tbody tr {
+            padding: 0;
+        }
+
+        .cosa{
+            width: 100%;
+            margin: 10px;
+            border-top: black;
+            font-size: 12px;
+        }
+
+        #invoice tbody tr td {
+            text-align: left;
+            border-bottom: 1px solid rgb(183, 183, 183);
+            padding-top: 4px;
+        }
+	</style>
+</head>
+
+<body>
+
+	<div class="logo" id="report_header">
+		{% if logo_img %}
+		    <img src="{{logo_img}}" alt="logo" width="180px" height="120px">
+		{% endif %}
+	</div>
+	<div class="title" id="title_header">
+		<p style="font-size: 14px;"
+			<span>FARMACIA COMUNITARIA ASIC LEONIDAS RAMOS</span> <br>
+			<span style="font-size: 12px;">URB. MANUEL CEDEÑO, ESQUINA DE LA AV.1 CON AV. 3, TAMBIÉN CONOCIDA COMO AV. RIO MEDERO.</span> <br>
+		</p>
+	</div>
+    <div class="fecha_frame" id="fecha_frame">
+        <span style="border: 1px solid black;">EMISION: {{date}}</span>
+    </div>
+	<div class="report_body" id="content">
+		<div class="report_info" id="info">
+			<p style="font-size: 12px;">
+				<span style="font-weight: 700;">{{report_title|upper}}</span> <br>
+			
+			</p >
+		</div>
+		<table id="invoice">
+			<thead>
+				<tr>
+					<th>DESCRIPCION</th>
+					<th>ENCARGADOS</th>
+					<th>FECHA S.</th>
+					<th>FECHA J.</th>
+					<th>JEFE C.</th>
+					<th>ESTADO</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for x in jornada %}
+					<tr>
+						<td class="cosa">{{ x.descripcion }}</td>
+						<td class="cosa">{{x.encargados}}</td>
+                        <td class="cosa">{{x.fecha_solicitud|date:'d/m/Y'}}</td>
+						<td class="cosa">{{x.fecha_jornada|date:'d/m/Y'}}</td>
+						<td class="cosa">{{x.jefe_comunidad.nacionalidad}}{{x.jefe_comunidad.cedula}}</td>
+                        <td class="cosa">{{x.get_estado_display}}</td></td>
+					</tr>
+				{% empty %}
+					<tr>
+						<td colspan="6" valign="middle" class="cosa">SIN REGISTROS</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table> <br> <br>
+        <br>
+	</div>
+
+	<div class="footer" id="report_footer">
+		<p>Pág. <pdf:pagenumber> de <pdf:pagecount> </p>
+	</div>
+
+</body>
+
+</html>

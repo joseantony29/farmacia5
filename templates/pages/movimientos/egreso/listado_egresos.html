@@ -1,0 +1,110 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Listado de egresos
+{% endblock title %}
+
+{% block extra_css %}
+    	<!--Data table-->
+	<link rel="stylesheet" href="{% static 'css/buttons.bootstrap5.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.bootstrap5.min.css' %}">
+{% endblock extra_css %}
+    
+
+{% block body %}
+<div class="row">
+    <!-- Zero config table start -->
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 id="page_title">{{ sub_title }}</h5>
+                <div class="cart-tools">
+                    <!-- <a href="#" id="btn_filter" class="btn btn-icon btn-light-dark ml-10" rel="btn_open_modal_report" data-bs-toggle="tooltip" data-bs-placement="top" title="Reportes">
+                        <i class="fas fa-file-pdf"></i>
+                    </a> -->
+                    <a href="{% url 'registrar_egreso' %}" class="btn btn-icon btn-info" data-bs-toggle="tooltip" title="Registrar anuncio">
+                        <i class="fa fa-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                                <span class="badge badge-pill badge-success">Exito!</span>
+                                {{ message }}.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        {% elif message.tags == 'error' %}
+                            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                                <span class="badge badge-pill badge-danger">Error!</span>
+                                {{ message }}.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div class="dt-responsive table-responsive">
+                    <table id="listado" class="table table-striped table-hover table-bordered nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>fecha</th>
+                                <th>Descripción</th>
+                                <th>Tipo de egreso</th>
+                                <th>Opciones</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                            {% for x in egresos %}
+                                <tr>
+                                    <td>{{ x.pk }}</td>
+                                    <td>{{ x.fecha|date:'d/m/Y' }}</td>
+                                    <td>{{ x.descripcion }}</td>
+                                    <td>{{ x.tipo_egreso }}</td>
+                                    <td>
+                                        <a href="{% url 'detalle_egreso' x.pk %}" rel="detail" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalle de egreso">
+                                            <i class="fa fa-info"></i>
+                                        </a>
+                                        <a href="{% url 'det_egreso' x.pk %}" target="_blank" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver reporte">
+                                            <i class="fa fa-book"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>fecha</th>
+                                <th>Descripción</th>
+                                <th>Tipo de egreso</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Zero config table end -->
+</div>
+{% endblock body %}
+
+
+{% block extrajs %}
+    <!--Data table-->
+    <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables.bootstrap5.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'js/plugins/responsive.bootstrap5.min.js' %}"></script>
+{% endblock extrajs %}
+    

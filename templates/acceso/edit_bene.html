@@ -1,0 +1,75 @@
+<div class="modal fade" id="modal_edit_bene" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <form method="POST" id="form_edit_bene" enctype="multipart/form-data">{% csrf_token %}
+            <input type="hidden" name="action" id="action" value="editar_bene">
+            <input type="hidden" name="id" id="id">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="smallmodalLabel">Editar Beneficiado</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-2 mb-3">
+                        <div class="col">   
+                            <label for="">Parentesco</label>
+                            <select name="parentesco" class="form-control">
+                                <option value="HO">Hijo</optin>
+                                <option value="HA">Hija</option>
+                                <option value="EO">Esposo</option>
+                                <option value="EA">Esposa</option>
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="">Telefono</label>
+                            <input type="text" name="telefono_bene" class="form-control" maxlength="11" minlength="11" onkeypress="return Solo_Numero(event)">
+                        </div>
+                        {% if not mi_dato.genero == 'MA' %}
+                            <div class="col">
+                                <div class="col-6">
+                                    <label for="">¿Está embarazada?</label> <br>
+                                    <input type="checkbox" name="embarazada_bene" {% if mi_dato.embarazada %} checked {% endif %}>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col">
+                                    <label for="">Zona</label>
+                                    <select name="zona_bene" id="id_zona_bene" class="form-control" required>
+                                        {% for z in zonas %}
+                                            <option value="{{z.id}}">{{z.zona_residencia}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    
+                                </div>
+                                <div class="col">
+                                    <label for="">Constancia de residencia</label>
+                                    <input type="file" class="form-control-file" name="c_residencia_bene" id="c_resi">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Patología</label>
+                            <textarea name="patologia_bene" cols="30" rows="3" class="form-control" required style="resize: none;" onkeypress="return Texto_Numeros(event)"></textarea>
+                        </div>
+                        <div class="col">
+                            <label for="">Ubicación</label>
+                            <textarea name="direccion_bene" cols="30" rows="3" class="form-control" required style="resize: none;" onkeypress="return Texto_Numeros(event)"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

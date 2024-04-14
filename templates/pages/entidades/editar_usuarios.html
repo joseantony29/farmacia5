@@ -1,0 +1,142 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Listado de Usuarios
+{% endblock title %}
+
+{% block extra_css %}
+    	<!--Data table-->
+	<link rel="stylesheet" href="{% static 'css/buttons.bootstrap5.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.bootstrap5.min.css' %}">
+{% endblock extra_css %}
+    
+
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <div class="card">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                    <span class="badge badge-pill badge-success">Exito!</span>
+                    {{ message }}.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="card-header">
+            <strong class="card-title">Edición de Usuarios</strong>
+        </div>
+        <div class="card-body">
+
+            <div class="row g-2 mb-3">
+                <div class="col">
+                    <label for="">Nombres</label>
+                    {{form.nombres|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Texto(event)'}}
+                </div>
+                <div class="col">
+                    <label for="">Apellidos</label>
+                    {{form.apellidos|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Texto(event)'}}
+                </div>
+            </div>
+            <div class="row g-2 mb-3">
+                <div class="col">
+                    <label for="">Fecha de nacimiento</label>
+                    <input type="date" name="f_nacimiento" value="{{ form.f_nacimiento.value|date:'Y-m-d' }}" class="form-control" required>
+
+                </div>
+                <div class="col">
+                    <label for="">Genero</label>
+                    {{form.genero|add_class:'form-control'|attr:'required'}}
+                </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+                <div class="col">
+                    <label for="">¿Esta embarazada?</label>
+                    {{form.embarazada|add_class:'form-control'}}
+                </div>
+                <div class="col">
+                    <label for="">Telefono</label>
+                    {{form.telefono|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Numero(event)'|attr:'maxlength:11'|attr:'minlength:11'}}
+                </div>
+            </div>
+
+            <div class="row g-2 mb-3">
+                <div class="col">
+                    <label for="">Zona</label>
+                    {{form.zona|add_class:'form-control'|attr:'required'}}
+                </div>
+                <div class="col">
+                    <label for="">Constancia de residencia</label>
+                    {{form.c_residencia|add_class:'form-control-file'}}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="">Rol en el sistema</label>
+                    {{form.rol|add_class:'form-control'|attr:'required'}}
+                </div>
+                <div class="col">
+                    <label for="">Correo</label>
+                    {{form.email|add_class:'form-control'|attr:'required'}}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Patología</label>
+                    {{form.patologia|add_class:'form-control'|attr:'rows:5'|attr:'style:resize:none'|attr:'required'|attr:'onkeypress:return Texto_Numeros(event)'}}
+                </div>
+                <div class="col">
+                    <label for="">Direccion</label>
+                    {{form.direccion|add_class:'form-control'|attr:'rows:5'|attr:'style:resize:none'|attr:'required'|attr:'onkeypress:return Texto_Numeros(event)'}}
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+            <a href="{% url 'lista_perfiles' %}" class="btn btn-danger">Cancelar</a>
+        </div>
+    </div>
+</form>
+
+{% endblock body %}
+
+
+{% block extrajs %}
+    <!--Data table-->
+    <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables.bootstrap5.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'js/plugins/responsive.bootstrap5.min.js' %}"></script>
+
+    <script src="{% static 'js/pages/entidades/usuarios.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Asume que los campos tienen los IDs 'id_genero' y 'id_embarazada'
+            $('#id_genero').change(function() {
+                var genero = $(this).val();
+                if (genero === 'MA') {
+                    // Si el género es masculino, establece el campo embarazada en False
+                    $('#id_embarazada').prop('checked', false);
+                    // Opcionalmente, deshabilita el campo embarazada
+                    $('#id_embarazada').prop('disabled', true);
+                } else if (genero === 'FE') {
+                    // Si el género es femenino, habilita el campo embarazada
+                    $('#id_embarazada').prop('disabled', false);
+                }
+            });
+            // Trigger change para establecer el estado inicial correcto
+            $('#id_genero').trigger('change');
+        });
+        </script>
+{% endblock extrajs %}
+    

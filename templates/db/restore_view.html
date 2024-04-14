@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_css %}    	
+    <!-- notifier -->
+    <link rel="stylesheet" href="{% static 'css/notifier.css' %}">
+{% endblock extra_css %}
+
+{% block body %}
+
+    <!-- [ Main Content ] start -->
+    <div class="row">
+        <div class="col col-sm-12">
+
+            <form action="" id="form" method="post">
+                {% csrf_token %}
+                <div class="col col-md-12">
+                    <div class="card overflow-hidden">
+                        <div class="card-header">
+                            <strong class="mt-5 card-title"><b>Restaurar Base de datos</b></strong>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-4">
+                                <input type="file" class="form-control" name="file_input" id="file_input" required>
+                                <label class="input-group-text" for="file_input"><i class="fa fa-database"></i></label>
+                            </div>
+                            <a href="#" class="btn btn-secondary me-3" onclick="return PagePrevious()">Regresar</a>
+                            <button type="submit" class="btn btn-primary me-3" id="btn_confirm_security">Confirmar</button>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block extrajs %}
+    <!-- notifier -->
+    <script src="{% static 'js/plugins/notifier.js' %}"></script>
+    <script src="{% static 'js/pages/db/db_restore.js' %}"></script>
+{% endblock extrajs %}
+    

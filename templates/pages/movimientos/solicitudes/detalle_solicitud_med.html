@@ -1,0 +1,251 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Detalle de solicitud de medicamento
+{% endblock title %}
+
+{% block extra_css %}    	
+    <!--Data table-->
+    <link rel="stylesheet" href="{% static 'css/buttons.bootstrap5.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.bootstrap5.min.css' %}">
+{% endblock extra_css %}
+
+{% block body %}
+    <div class="row">
+        <div class="col col-md-12">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 id="page_title">{{ sub_title }}</h5>
+                    <div class="cart-tools">
+                        {% if solicitud.tipo_solicitud == 'ON' %}
+                            {% if request.user.perfil.rol == 'AD' %}
+                                {% if solicitud.estado == 'DV' %}
+                                    <a href="{% url 'modificar_solicitudes_medicamentos' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Mofificar Solicitud">
+                                        Modificar
+                                    </a>
+                                {% endif %}
+                            
+                            {% elif request.user.perfil.rol == 'AL' %}
+                                {% if solicitud.estado == 'AP' %}
+                                    <a href="{% url 'solicitud_de_medicamento_en_espera_entrega' solicitud.pk %}" rel="edit" class="btn btn-dark" data-bs-toggle="tooltip" title="En espera de entrega">
+                                        Marcar 'En espera de entrega'
+                                    </a>
+                                {% endif %}
+                            {% elif request.user.perfil.rol == 'AT' %}
+                                {% if solicitud.estado == 'EE' %}
+                                    <a href="{% url 'solicitud_de_medicamento_entregado' solicitud.pk %}" rel="entregar" class="btn btn-dark" data-bs-toggle="tooltip" title="Entregado al cliente">
+                                        Marcar 'Medicamento entregado'
+                                    </a>
+                                {% elif solicitud.estado == 'PR' %}
+                                    <a href="{% url 'solicitud_de_medicamento_verificada' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Verificar Datos">
+                                        Verificar Solicitud
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                        {% elif solicitud.tipo_solicitud == 'PR' %}
+                            {% if request.user.perfil.rol == 'AL' %}
+                                {% if solicitud.estado == 'DV' %}
+                                    <a href="{% url 'modificar_solicitudes_medicamentos' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Mofificar Solicitud">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                {% elif solicitud.estado == 'AP' %}
+                                    <a href="{% url 'solicitud_de_medicamento_en_espera_entrega' solicitud.pk %}" rel="edit" class="btn btn-dark" data-bs-toggle="tooltip" title="En espera de entrega">
+                                        Marcar 'En espera de entrega'
+                                    </a>
+                                {% endif %}
+                            {% elif request.user.perfil.rol == 'AT' %}
+                                {% if solicitud.estado == 'EE' %}
+                                    <a href="{% url 'solicitud_de_medicamento_entregado' solicitud.pk %}" rel="entregar" class="btn btn-dark" data-bs-toggle="tooltip" title="Entregado al cliente">
+                                        Marcar 'Medicamento entregado'
+                                    </a>
+                                {% elif solicitud.estado == 'PR' %}
+                                    <a href="{% url 'solicitud_de_medicamento_verificada' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Verificar Datos">
+                                        Verificar Solicitud
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                        {% if request.user.perfil.rol == 'AT' or request.user.perfil.rol == 'AD' %}
+                            {% if solicitud.estado == 'PR' or solicitud.estado == 'DV' %}
+                                <a href="#" rel="ban" class="btn btn-danger" data-bs-toggle="tooltip" title="Rechazar Solicitud">
+                                    Rechazar Solicitud
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col col-md-4">
+                            <h4 class="card-title">ID</h4>
+                            <p class="card-text">{{ solicitud.pk }}.</p>
+        
+                        </div>
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Fecha</h4>
+                            <p class="card-text">{{solicitud.fecha_soli|date:'d/m/Y'}}.</p>
+        
+                        </div>
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Proceso Actual</h4>
+                            <p class="card-text">{{solicitud.get_proceso_actual_display}}.</p>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Estado</h4>
+                            <p class="card-text">{{solicitud.get_estado_display}}.</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Descripcion</h4>
+                            <p class="card-text">{{solicitud.descripcion}}.</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Titular</h4>
+                            <p class="card-text">{{solicitud.perfil}}.</p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Beneficiado</h4>
+                            <p class="card-text">{{solicitud.beneficiado}}.</p>
+                        </div>
+                        <div class="col col-md-4">
+                            <h4 class="card-title">Recipe</h4>
+                            <a href="#" rel="ver_recipe" class="btn btn-info">Ver Recipe</a>
+                        </div>
+                        
+                        {% if solicitud.motivo_rechazo %}
+                            <div class="col col-md-4">
+                                <h4 class="card-title">Motivo del rechazo</h4>
+                                <p class="card-text">{{ solicitud.motivo_rechazo }}.</p>
+                            </div>
+                        {% endif %}
+                            
+
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong class="card-title">Medicamentos solcitados</strong>
+                </div>
+                <div class="card-body">
+                    <div class="dt-responsive table-responsive">
+                        <table id="listado" class="table table-striped table-hover table-bordered nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad solcitada</th>
+                                    <th>Cantidad entregada</th>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                                {% for det in solicitud.detalle.all %}
+                                    <tr>
+                                        <td>{{ det.producto.nombre }}</td>
+                                        <td>{{ det.cant_solicitada }}</td>
+                                        {% if det.cant_entregada > 0 %}
+                                            <td>{{ det.cant_entregada }}</td>
+                                        {% elif solicitud.estado == 'RE' %}
+                                             <td>Rechazado</td>
+                                        {% else %}
+                                            <td>En espera</td>
+                                        {% endif %}
+                                            
+                                    </tr>
+                                {% endfor %}
+                                    
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_rechazo" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true" style="display: none;">
+        <form action="/rechazar-solicitud-de-medicamento/" method="post" id="form_motivo_rechazo">
+            {% csrf_token %}
+            <input type="hidden" name="pk" id="pk" value="{{ solicitud.pk }}">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="modal-title" id="mediumModalLabel">Motivo del Rechazo</h5>
+                            <div class="cart-tools">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label" for="id_motivo_rechazo">Motivo del rechazo</label>
+                            <textarea class="form-control form-control-sm" name="motivo_rechazo" id="id_motivo_rechazo" rows="4" onkeypress="return Texto_Numeros(event)" style="resize: none;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Confirmar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="modal_recipe" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="modal-title" id="mediumModalLabel">Ver recipe</h5>
+                        <div class="cart-tools">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="dt-responsive table-responsive">
+                        <img class="card-img-top" src="{{solicitud.recipe.url}}" alt="Recipe">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+{% block extrajs %}
+	<!--Data table-->
+	<script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'js/plugins/dataTables.bootstrap5.min.js' %}"></script>
+	<script src="{% static 'js/plugins/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'js/plugins/responsive.bootstrap5.min.js' %}"></script>     
+
+    <script>
+        /** OPEN MODAL PRODUCT **/
+        $('a[rel="ver_recipe"]').on('click', function () {
+            $('#modal_recipe').modal('show');
+        });
+            /** OPEN MODAL RECHAZAR SOLICITUD **/
+        $('a[rel="ban"]').on('click', function () {
+            $('#modal_rechazo').modal('show');
+        });
+    </script>
+
+{% endblock extrajs %}

@@ -1,0 +1,97 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Registrar Beneficiado
+{% endblock title %}
+
+{% block body %}
+<div class="row">
+    <!-- Zero config table start -->
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 id="page_title">{{ sub_title }}</h5>
+                <div class="cart-tools">
+                    <a href="#" class="btn btn-icon btn-info" data-bs-toggle="tooltip" title="Registrar mi comunidad">
+                        Regresar al listado
+                    </a>
+                </div>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                        <span class="badge badge-pill badge-danger">Ocurrio un error!</span>
+                        {{ message }}.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="card-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col">
+                                    <label for="">Cedula de indentidad</label>
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <div class="btn-group">
+                                                {{form.nacionalidad|add_class:'form-control'|attr:'required'}}
+                                            </div>
+                                        </div>
+                                        {{form.cedula|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Numero_ci(event)'|attr:'placeholder:Introduzca la cedula'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col p-0">
+                                    <label for="" class="form-control-label">Nombres</label>
+                                    {{form.nombres|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Texto(event)'|attr:'placeholder:Introduzca el nombre'}}
+                                </div>
+                                <div class="col p-0 ml-2">
+                                    <label for="">Apellidos</label>
+                                    {{form.apellidos|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Solo_Texto(event)'|attr:'placeholder:Introduzca el apellido'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col">
+                                    <label for="">Genero</label>
+                                    <div class="input-group">
+                                        {{form.genero|add_class:'form-control'|attr:'required'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <div class="col">
+                                    <label for="">Patologia/Enfermedad</label>
+                                    <div class="input-group">
+                                        {{form.patologia|add_class:'form-control'|attr:'required'|attr:'onkeypress:return Texto_Numeros(event)'|attr:'placeholder:Introduzca la patologia/enfermedad'|attr:'rows:4'}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info me-2" id="btn_submit">Registrar</button>
+                    <button type="button" onclick="PagePrevious()" class="btn btn-dark">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Zero config table end -->
+</div>
+{% endblock body %}
+
+    

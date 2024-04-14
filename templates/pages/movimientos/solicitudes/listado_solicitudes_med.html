@@ -1,0 +1,255 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Solicitudes de medicamentos 
+{% endblock title %}
+
+{% block extra_css %}
+    	<!--Data table-->
+	<link rel="stylesheet" href="{% static 'css/buttons.bootstrap5.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/responsive.bootstrap5.min.css' %}">
+
+{% endblock extra_css %}
+
+{% block body %}
+<div class="row">
+    <!-- Zero config table start -->
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between">
+                <h5 id="page_title">{{ sub_title }}</h5>
+                <div class="cart-tools">
+                    <!-- <a href="#" id="btn_filter" class="btn btn-icon btn-light-dark ml-10" rel="btn_open_modal_report" data-bs-toggle="tooltip" data-bs-placement="top" title="Reportes">
+                        <i class="fas fa-file-pdf"></i>
+                    </a> -->
+                    <a href="{% url 'registrar_solicitud_presencial' %}" class="btn btn-icon btn-info" data-bs-toggle="tooltip" title="Registrar Solicitud">
+                        <i class="fa fa-plus text-white"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                                <span class="badge badge-pill badge-success">Exito!</span>
+                                {{ message }}.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        {% elif message.tags == 'error' %}
+                            <div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+                                <span class="badge badge-pill badge-danger">Error!</span>
+                                {{ message }}.
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div class="dt-responsive table-responsive">
+                    <table id="listado_solicitudes" class="table table-striped table-hover table-bordered nowrap">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Fecha</th>
+                                <th>Tipo de Solicitud</th>
+                                <th>Proceso actual</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                            {% for solicitud in solicitudes %}
+                                <tr>
+                                    <td>{{ solicitud.pk }}</td>
+                                    <td>{{ solicitud.fecha_soli|date:'d/m/Y' }}</td>
+                                    <td>{{ solicitud.get_tipo_solicitud_display }}</td>
+                                    <td>{{ solicitud.get_proceso_actual_display }}</td>
+                                    <td>{{ solicitud.get_estado_display }}</td>
+                                    <td>
+                                        <a href="{% url 'detalle_solicitud_med' solicitud.pk %}" rel="detail" class="btn btn-info" data-bs-toggle="tooltip" title="Detalle de Solicitud de medicamentos">
+                                            <i class="fa fa-info"></i>
+                                        </a>
+                                        
+                                        {% if solicitud.tipo_solicitud == 'ON' %}
+                                            {% if request.user.perfil.rol == 'AD' %}
+                                                {% if solicitud.estado == 'DV' %}
+                                                    <a href="{% url 'modificar_solicitudes_medicamentos' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Mofificar Solicitud">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                {% endif %}
+                                            
+                                            {% elif request.user.perfil.rol == 'AL' %}
+                                                {% if solicitud.estado == 'AP' %}
+                                                    <a href="{% url 'solicitud_de_medicamento_en_espera_entrega' solicitud.pk %}" rel="edit" class="btn btn-dark" data-bs-toggle="tooltip" title="En espera de entrega">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </a>
+                                                {% endif %}
+                                            {% elif request.user.perfil.rol == 'AT' %}
+                                                {% if solicitud.estado == 'EE' %}
+                                                    <a href="{% url 'solicitud_de_medicamento_entregado' solicitud.pk %}" rel="entregar" class="btn btn-dark" data-bs-toggle="tooltip" title="Entregado al cliente">
+                                                        <i class="fa fa-check-circle"></i>
+                                                    </a>
+                                                {% elif solicitud.estado == 'PR' %}
+                                                    <a href="{% url 'solicitud_de_medicamento_verificada' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Verificar Datos">
+                                                        <i class="fa fa-check-square"></i>
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% elif solicitud.tipo_solicitud == 'PR' %}
+                                            {% if request.user.perfil.rol == 'AL' %}
+                                                {% if solicitud.estado == 'DV' %}
+                                                    <a href="{% url 'modificar_solicitudes_medicamentos' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Mofificar Solicitud">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                {% elif solicitud.estado == 'AP' %}
+                                                    <a href="{% url 'solicitud_de_medicamento_en_espera_entrega' solicitud.pk %}" rel="edit" class="btn btn-dark" data-bs-toggle="tooltip" title="En espera de entrega">
+                                                        <i class="fa fa-envelope"></i>
+                                                    </a>
+                                                {% endif %}
+                                            {% elif request.user.perfil.rol == 'AT' %}
+                                                {% if solicitud.estado == 'EE' %}
+                                                    <a href="{% url 'solicitud_de_medicamento_entregado' solicitud.pk %}" rel="entregar" class="btn btn-dark" data-bs-toggle="tooltip" title="Entregado al cliente">
+                                                        <i class="fa fa-check-circle"></i>
+                                                    </a>
+                                                {% elif solicitud.estado == 'PR' %}
+                                                    <a href="{% url 'solicitud_de_medicamento_verificada' solicitud.pk %}" rel="edit" class="btn btn-warning" data-bs-toggle="tooltip" title="Verificar Datos">
+                                                        <i class="fa fa-check-square"></i>
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+                                        
+                                        {% if request.user.perfil.rol == 'AT' or request.user.perfil.rol == 'AD' %}
+                                            {% if solicitud.estado == 'PR' or solicitud.estado == 'DV' %}
+                                                <a href="#" rel="ban" class="btn btn-danger" data-bs-toggle="tooltip" title="Rechazar Solicitud">
+                                                    <i class="fa fa-ban"></i>
+                                                </a>
+                                            {% endif %}
+                                        {% endif %}
+
+                                        <a href="{% url 'det_solicitud' solicitud.pk %}" target="_blank" class="btn btn-success" data-bs-toggle="tooltip" title="Reporte de Solicitud">
+                                            <i class="fa fa-book"></i>
+                                        </a>
+                                            
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Fecha</th>
+                                <th>Tipo de Solicitud</th>
+                                <th>Proceso actual</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Zero config table end -->
+</div>
+
+<div class="modal fade" id="modal_rechazo" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true" style="display: none;">
+    <form action="/rechazar-solicitud-de-medicamento/" method="post" id="form_motivo_rechazo">
+        {% csrf_token %}
+        <input type="hidden" name="pk" id="pk">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="modal-title" id="mediumModalLabel">Motivo del Rechazo</h5>
+                        <div class="cart-tools">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label" for="id_motivo_rechazo">Motivo del rechazo</label>
+                        <textarea class="form-control form-control-sm" name="motivo_rechazo" id="id_motivo_rechazo" rows="4" onkeypress="return Texto_Numeros(event)" style="resize: none;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Confirmar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}
+
+
+{% block extrajs %}
+    <!--Data table-->
+    <script src="{% static 'js/plugins/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables.bootstrap5.min.js' %}"></script>
+    <script src="{% static 'js/plugins/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'js/plugins/responsive.bootstrap5.min.js' %}"></script>
+
+    <script>
+
+        let tabla = $('#listado_solicitudes').DataTable({
+            responsive: true,
+            autoWidth: false,
+            destroy: true,
+            deferRender: true,
+            ordering: false,
+            searching: true,
+            paging: true,
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "Mostrando del _START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrand del 0 al 0 de un total de 0 registros",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "<span class='fa fa-angle-double-left'></span>",
+                    "sLast": "<span class='fa fa-angle-double-right'></span>",
+                    "sNext": "<span class='fa fa-angle-right'></span>",
+                    "sPrevious": "<span class='fa fa-angle-left'></span>"
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                }
+            },
+            initComplete: function(settings, json) {
+        
+            }
+        });
+
+        // MOSTRAR MODAL
+        $('#listado_solicitudes tbody').on('click', 'a[rel="ban"]', function () {
+            $('#form_motivo_rechazo')[0].reset();
+            var tr = tabla.cell($(this).closest('td, li')).index();
+            var data = tabla.row(tr.row).data();
+
+            $('input[name="pk"]').val(data[0]);
+            console.log(data[0]);
+            $('#modal_rechazo').modal('show');
+        });
+    </script>
+{% endblock extrajs %}
+    

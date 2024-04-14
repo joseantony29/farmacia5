@@ -1,0 +1,215 @@
+{% extends 'base/base.html' %}
+{% block title %}Menu de reportes{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de perfiles</div>
+                        <div class="stat-text"><a href="{% url 't_perfiles' %}" target="_blank" class="btn btn-primary mt-3">Ver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de Beneficiados</div>
+                        <div class="stat-text"><a href="{% url 't_beneficiados' %}" target="_blank" class="btn btn-primary mt-3">Ver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de Productos</div>
+                        <div class="stat-text"><a href="{% url 'l_productos' %}" target="_blank" class="btn btn-primary mt-3">Ver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de Solicitudes</div>
+                        <div class="stat-text"><a href="{% url 't_solicitudes' %}" target="_blank" class="btn btn-primary mt-3">Ver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de Solicitudes por estado</div>
+                        <select name="" id="id_estado" class="form-control mb-3 mt-3">
+                            <option value="PR">En proceso</option>
+                            <option value="DV">Datos verificados</option>
+                            <option value="AP">Aprobado</option>
+                            <option value="EE">En espera de entrega</option>
+                            <option value="NR">Paciente no retiro</option>
+                            <option value="ET">Entregado</option>
+                            <option value="RE">Rechazado</option>
+                        </select>
+                        <div class="stat-text"><button class="btn btn-primary" type="button" id="btn_ver_se">Ver</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de jornadas por zonas</div>
+                        <select name="" id="id_zona" class="form-control mb-3 mt-3">
+                            {% for x in zonas %}
+                                <option value="{{x.pk}}">{{x.zona_residencia}}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="stat-text"><button class="btn btn-primary" type="button" id="btn_ver">Ver</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de jornadas por jefes de comunidad</div>
+                        <select name="" id="id_jc" class="form-control mb-3 mt-3">
+                            {% for x in j_c %}
+                                <option value="{{x.pk}}">{{x.cedula}}| {{x.nombres}} {{x.apellidos}}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="stat-text"><button class="btn btn-primary" type="button" id="btn_ver_jc">Ver</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Listado de Productos con stock minimo</div>
+                        <div class="stat-text"><a href="{% url 'productos_sm' %}" target="_blank" class="btn btn-primary mt-3">Ver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Historial de movimientos del inventario</div>
+                        <div class="stat-text"><a href="{% url 'historial' %}" target="_blank" class="btn btn-primary mt-3">Ver</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Solicitudes por rango de fechas</div>
+                        <div class="row g-2 mt-3">
+                            <div class="col">
+                                <label for="">Desde</label>
+                                <input type="date" name="fecha1" id="fecha1" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="">Hasta</label>
+                                <input type="date" name="fecha2" id="fecha2" class="form-control">
+                            </div>
+                        </div>
+                        <div class="stat-text mt-3"><button class="btn btn-primary" type="button" id="btn_ver_sf">Ver</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="text-left dib">
+                        <div class="stat-heading">Jornadas por rango de fechas</div>
+                        <div class="row g-2 mt-3">
+                            <div class="col">
+                                <label for="">Desde</label>
+                                <input type="date" name="fecha1" id="fecha1_j" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="">Hasta</label>
+                                <input type="date" name="fecha2" id="fecha2_j" class="form-control">
+                            </div>
+                        </div>
+                        <div class="stat-text mt-3"><button class="btn btn-primary" type="button" id="btn_ver_jf">Ver</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block extrajs %}
+    <script>
+        document.getElementById('btn_ver').addEventListener('click', function() {
+            var selectElement = document.getElementById('id_zona');
+            var valorSeleccionado = selectElement.value;
+            window.open('/reporte/listado-de-jornada-zona/'+ valorSeleccionado+'/');
+        });
+        document.getElementById('btn_ver_se').addEventListener('click', function() {
+            var selectElement = document.getElementById('id_estado');
+            var valorSeleccionado = selectElement.value;
+            window.open('/reporte/listado-de-solicitudes-por-estado/'+ valorSeleccionado+'/');
+        });
+        document.getElementById('btn_ver_jc').addEventListener('click', function() {
+            var selectElement = document.getElementById('id_jc');
+            var valorSeleccionado = selectElement.value;
+            window.open('/reporte/listado-de-jornada-jefe-comunidad/'+ valorSeleccionado+'/');
+        });
+        document.getElementById('btn_ver_sf').addEventListener('click', function() {
+            var fecha1 = document.getElementById('fecha1');
+            var fecha2 = document.getElementById('fecha2');
+            window.open('/reporte/listado-de-solicitudes/'+ fecha1.value+'/'+fecha2.value+'/');
+        });
+        document.getElementById('btn_ver_jf').addEventListener('click', function() {
+            var fecha1 = document.getElementById('fecha1_j');
+            var fecha2 = document.getElementById('fecha2_j');
+            window.open('/reporte/listado-de-jornada-desde/'+ fecha1.value+'/'+fecha2.value+'/');
+        });
+    </script>
+{% endblock extrajs %}
+    

@@ -1,0 +1,3 @@
+TAREAS & CORRECIONES JOSE
+    # CORRECIONES
+        - No carga el logo en de la farmacia en reportes en el Pythonanywhere
